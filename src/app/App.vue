@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navbar></navbar>
+    <navbar :title="titulo" :menuItens="itensMenu"></navbar>
   </div>
 </template>
 
@@ -9,12 +9,30 @@
   export default {
     components: {
       navbar
+    },
+    data () {
+      return {
+        titulo: "Dr. Pet",
+        itensMenu: [
+          {
+            name: "Saude",
+            click: function () {}
+          },
+          {
+            name: "Alimentacao",
+            click: function () {}
+          },
+          {
+            name: "Dicas",
+            click: function () {}
+          },
+          {
+            name: "Fale com o Vet.",
+            click: function () {},
+            cssClass: "button is-warning"
+          }
+        ]
+      }
     }
   }
 </script>
-
-<style scoped>
-  body {
-    margin-top: 50px
-  }
-</style>

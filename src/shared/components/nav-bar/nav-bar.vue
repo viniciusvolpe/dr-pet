@@ -10,23 +10,18 @@
 			          <p class="nav-item control has-addons">
 			            <input class="input" type="text" placeholder="Email" v-model="usuario.email">
 			            <input class="input" type="password" placeholder="Senha" v-model="usuario.senha">
-			            <button class="button" v-on:click="login">Logar</button>
+			            <button class="button" v-on:click="login">Login</button>
 			          </p>
 				  	</div>
 				  <div class="nav-center">
 				    <a class="nav-item is-brand is-active" href="#">
-				      <b class="fa-2x">Dr. Pet</b>
+				      <b class="fa-2x">{{title}}</b>
 				    </a>
 				  </div>
 
 				  <div class="nav-right nav-menu">
-			        <p class="nav-item"><a v-on:click="goToSaude">Saude</a></p>
-			        <p class="nav-item"><a v-on:click="goToAlimentacao">Alimentacao</a></p>
-			        <p class="nav-item"><a v-on:click="goToDicas">Dicas</a></p>
-			        <p class="nav-item"><a v-on:click="goToFaleComVet" class="button is-warning">Fale com o Vet.</a></p>
+				  	<p class="nav-item" v-for="item in menuItens"><a v-on:click="item.click" v-bind:class="[item.cssClass]">{{item.name}}</a></p>
 				  </div>
-
-				 
 				</nav>
 		    </div>
 		</div>
@@ -34,27 +29,14 @@
 </template>
 <script>
 export default {
+	props: ['title', 'menuItens'],
 	data () {
 		return  {
 			usuario: {}
 		};
 	},
 	methods: {
-		login: function () {
-			console.log(this.usuario);
-		},
-		goToSaude : function () {
-
-		},
-		goToAlimentacao : function () {
-
-		},
-		goToDicas : function () {
-
-		},
-		goToFaleComVet : function () {
-
-		},
+		login: function () {}
 	}
 }
 </script>
