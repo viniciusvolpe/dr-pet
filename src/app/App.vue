@@ -1,14 +1,20 @@
 <template>
   <div id="app">
-    <navbar :title="titulo" :menuItens="itensMenu"></navbar>
+    <navbar :title="titulo" :menuItens="itensMenu" id="navbar"></navbar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+  import VueRouter from 'vue-router';
+  import Vue from 'vue'
   import navbar from '../shared/components/nav-bar/nav-bar.vue';
+  import login from '../shared/components/login/login.vue';
+  Vue.use(VueRouter);
   export default {
     components: {
-      navbar
+      navbar,
+      login
     },
     data () {
       return {
@@ -16,22 +22,27 @@
         itensMenu: [
           {
             name: "Saude",
-            click: function () {}
+            to: "/saude"
           },
           {
             name: "Alimentacao",
-            click: function () {}
+            to: "/alimentacao"
           },
           {
             name: "Dicas",
-            click: function () {}
+            to: "/dicas"
           },
           {
             name: "Fale com o Vet.",
-            click: function () {},
+            to: "/fale-com-vet",
             cssClass: "button is-warning"
+          },
+          {
+            name: "Login",
+            to: "/login",
+            cssClass: "button is-outlined"
           }
-        ]
+        ]        
       }
     }
   }
