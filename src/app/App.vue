@@ -6,15 +6,11 @@
 </template>
 
 <script>
-  import VueRouter from 'vue-router';
-  import Vue from 'vue'
   import navbar from '../shared/components/nav-bar/nav-bar.vue';
-  import login from '../shared/components/login/login.vue';
-  Vue.use(VueRouter);
+
   export default {
     components: {
-      navbar,
-      login
+      navbar
     },
     data () {
       return {
